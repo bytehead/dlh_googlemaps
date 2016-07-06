@@ -96,7 +96,7 @@ class ContentMap extends \ContentElement
                 $this->Template = new \FrontendTemplate($this->dlh_googlemap_template);
             }
 
-            $GLOBALS['TL_JAVASCRIPT'][] = 'http'.(\Environment::get('ssl') ? 's' : '').'://maps.google.com/maps/api/js?language='.$arrMap['language'];
+            $GLOBALS['TL_JAVASCRIPT'][] = 'http'.(\Environment::get('ssl') ? 's' : '').'://maps.google.com/maps/api/js?key='.$arrMap['apiKey'].'&amp;language='.$arrMap['language'];
         }
 
         $this->Template->map = $arrMap;
