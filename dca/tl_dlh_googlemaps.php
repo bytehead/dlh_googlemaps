@@ -108,7 +108,7 @@ $GLOBALS['TL_DCA']['tl_dlh_googlemaps'] = array
 	'palettes' => array
 	(
 		'__selector__'                => array('useMapTypeControl', 'useZoomControl', 'usePanControl', 'useRotateControl', 'useScaleControl', 'useStreetViewControl','useOverviewMapControl'),
-		'default'                     => '{title_legend},title,geocoderAddress,geocoderCountry,center,mapSize,zoom;{maptype_legend:hide},mapTypeId,mapTypesAvailable,disableDoubleClickZoom,draggable,scrollwheel,staticMapNoscript,sensor;{maptypecontrols_legend:hide},useMapTypeControl;{zoomcontrol_legend:hide},useZoomControl;{rotatecontrol_legend:hide},useRotateControl;{pancontrol_legend:hide},usePanControl;{scalecontrol_legend:hide},useScaleControl;{streetviewcontrol_legend:hide},useStreetViewControl;{overviewmapcontrol_legend:hide},useOverviewMapControl;{parameter_legend:hide},parameter,moreParameter'
+		'default'                     => '{title_legend},title,geocoderAddress,geocoderCountry,center,mapSize,zoom,apiKey;{maptype_legend:hide},mapTypeId,mapTypesAvailable,disableDoubleClickZoom,draggable,scrollwheel,staticMapNoscript,sensor;{maptypecontrols_legend:hide},useMapTypeControl;{zoomcontrol_legend:hide},useZoomControl;{rotatecontrol_legend:hide},useRotateControl;{pancontrol_legend:hide},usePanControl;{scalecontrol_legend:hide},useScaleControl;{streetviewcontrol_legend:hide},useStreetViewControl;{overviewmapcontrol_legend:hide},useOverviewMapControl;{parameter_legend:hide},parameter,moreParameter'
 	),
 
 	// Subpalettes
@@ -442,7 +442,16 @@ $GLOBALS['TL_DCA']['tl_dlh_googlemaps'] = array
             'eval'                    => array('preserveTags'=>true, 'decodeEntities'=>true, 'class'=>'monospace', 'rte'=>'ace', 'helpwizard'=>true),
             'explanation'             => 'insertTags',
             'sql'                     => "text NULL"
-        )
+        ),
+		'apiKey' => array
+		(
+			'label'                   => &$GLOBALS['TL_LANG']['tl_dlh_googlemaps']['apiKey'],
+			'exclude'                 => true,
+			'search'                  => true,
+			'inputType'               => 'text',
+			'eval'                    => array('mandatory'=>true, 'maxlength'=>255, 'tl_class'=>'w50'),
+			'sql'                     => "varchar(255) NOT NULL default ''"
+		)
 	)
 );
 
